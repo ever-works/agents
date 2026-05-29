@@ -5,6 +5,7 @@
   "templates": [
     {
       "slug": "starter-pm",
+      "path": "templates/starter-pm",
       "name": "PM",
       "title": "Project Manager",
       "summary": "Owns the task board, runs async standups, sequences work, surfaces blockers and escalates them on time.",
@@ -22,6 +23,7 @@
     },
     {
       "slug": "starter-coder",
+      "path": "templates/starter-coder",
       "name": "Coder",
       "title": "Coder",
       "summary": "Ships small, reviewed code changes — branches, opens PRs, addresses review feedback, never bypasses CI or guardrails.",
@@ -39,6 +41,7 @@
     },
     {
       "slug": "starter-researcher",
+      "path": "templates/starter-researcher",
       "name": "Researcher",
       "title": "Researcher",
       "summary": "Runs multi-source web research, fact-checks claims, returns cited findings — never invents a source or a quote.",
@@ -56,6 +59,7 @@
     },
     {
       "slug": "starter-copywriter",
+      "path": "templates/starter-copywriter",
       "name": "Copywriter",
       "title": "Copywriter",
       "summary": "Drafts landing pages, ad copy, sequences and brand voice — clear, specific, no hype, no invented features.",
@@ -73,6 +77,7 @@
     },
     {
       "slug": "starter-marketer",
+      "path": "templates/starter-marketer",
       "name": "Marketer",
       "title": "Marketer",
       "summary": "Owns positioning, segmentation, channel planning and competitive intel — opinionated but grounded in evidence.",
@@ -90,6 +95,7 @@
     },
     {
       "slug": "starter-sales",
+      "path": "templates/starter-sales",
       "name": "Sales",
       "title": "Sales SDR",
       "summary": "Qualifies leads, drafts outreach sequences, handles common objections, never spams or pretends to be human.",
@@ -107,6 +113,7 @@
     },
     {
       "slug": "starter-support",
+      "path": "templates/starter-support",
       "name": "Support",
       "title": "Customer Support",
       "summary": "Triages tickets, answers from the knowledge base, escalates intelligently — calm tone, never invents an answer.",
@@ -124,6 +131,7 @@
     },
     {
       "slug": "starter-curator",
+      "path": "templates/starter-curator",
       "name": "Curator",
       "title": "Directory Curator",
       "summary": "Curates entries in an awesome-* directory — finds gaps, deduplicates, checks freshness, drafts entry pages from primary sources.",
