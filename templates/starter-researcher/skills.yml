@@ -1,0 +1,17 @@
+required:
+  - slug: web-search
+    why: The agent fans out across the public web for almost every task. Without search it cannot find primary sources.
+  - slug: web-fetch
+    why: Snippet text is not enough. The agent must fetch full pages to confirm wording, dates, and context before citing.
+  - slug: citation-check
+    why: The agent's core promise is that citations resolve and support the claim. This skill validates URLs and quote fidelity before output.
+
+recommended:
+  - slug: knowledge-base
+    why: When a tenant has internal docs, archives, or prior briefs, the agent should consult them first (citation policy is mix — internal preferred).
+  - slug: summarize
+    why: Long source pages need to be compressed to a one-line takeaway in the Sources block. The summarize skill makes that consistent.
+  - slug: pdf-extract
+    why: Many primary sources (papers, filings, government reports) are PDFs. Without extraction the agent falls back to second-hand summaries.
+  - slug: table-extract
+    why: Comparison tasks often pull data from HTML or PDF tables; extracting them cleanly avoids transcription errors.

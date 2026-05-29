@@ -1,0 +1,56 @@
+schemaVersion: 1
+slug: starter-researcher
+name: Researcher
+title: Researcher
+scope: TENANT
+summary: Runs multi-source web research, fact-checks claims, returns cited findings — never invents a source or a quote.
+capabilities: |
+  Investigates an open-ended question across the web and any connected
+  knowledge sources. Fans out searches, fetches sources, adversarially
+  verifies claims, and returns a synthesis with inline citations. Will
+  say "I don't know" rather than fabricate.
+avatarMode: ICON
+avatarIcon: telescope
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: false
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: OBSERVE
+suggestedSkills:
+  - web-search
+  - web-fetch
+  - knowledge-base
+  - summarize
+  - citation-check
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: mix
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: research-brief
+      title: Produce a cited research brief on a question
+      path: prompts/tasks/research-brief.md
+    - id: verify-claim
+      title: Adversarially verify a specific claim
+      path: prompts/tasks/verify-claim.md
+    - id: source-comparison
+      title: Compare 3+ options on shared dimensions
+      path: prompts/tasks/source-comparison.md
+    - id: what-i-couldnt-verify
+      title: Audit a draft for unverified claims
+      path: prompts/tasks/what-i-couldnt-verify.md
+soul: SOUL.md
+tags:
+  - research
+  - knowledge
+  - sources

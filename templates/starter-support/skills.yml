@@ -1,0 +1,17 @@
+required:
+  - slug: ticketing
+    why: The agent reads, classifies, replies to, and resolves tickets in the tenant's ticketing tool. Without this skill it has no inbox to act on.
+  - slug: knowledge-base
+    why: Every factual reply must cite a KB article. The skill provides search and fetch over the tenant's KB source.
+  - slug: inbox-classifier
+    why: Consistent classification (bug / how-to / billing / feature-request / abuse / other) drives priority, routing, and the weekly gap report.
+  - slug: escalation
+    why: When the KB does not cover a question or a destructive action is needed, the agent hands off to a human on-call with structured context.
+
+recommended:
+  - slug: sentiment
+    why: Detect hostile or distressed users early so the agent stays neutral, shortens the reply, and bumps priority where the SLA matrix requires it.
+  - slug: redaction
+    why: Strip user PII before quoting tickets in internal notes, gap reports, or cross-tenant analytics.
+  - slug: changelog-lookup
+    why: Verify that a reported bug has actually shipped a fix before telling a user it is resolved.

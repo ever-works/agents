@@ -1,0 +1,19 @@
+required:
+  - slug: knowledge-base
+    why: The agent must pull product facts and brand-voice rules from
+      the tenant KB before drafting. Without KB access it cannot
+      verify claims and will refuse most asks.
+  - slug: style-guide
+    why: Enforces the tenant's voice, grammar, and forbidden-word list
+      automatically on every draft. Hard-rule enforcement against
+      intensifiers depends on this skill.
+
+recommended:
+  - slug: tone-checker
+    why: Second-pass review that scores a draft against the brand
+      voice and flags drift. Useful when the brand-voice doc is still
+      maturing and the style-guide lexicon is incomplete.
+  - slug: web-search
+    why: Audience research only — finding how a target segment talks
+      about a problem in forums, reviews, or job ads. Must never be
+      used to source claims about the tenant's own product.

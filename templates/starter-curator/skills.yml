@@ -1,0 +1,19 @@
+required:
+  - slug: web-fetch
+    why: Every candidate entry and every freshness check pulls facts from the project's own homepage or repository. Without web-fetch the curator cannot reach primary sources.
+  - slug: link-checker
+    why: The weekly freshness sweep relies on accurate HTTP status, redirect resolution, and dead-link detection across the entire index.
+  - slug: yaml-validator
+    why: Every draft entry is emitted as YAML against the directory's schema. Invalid YAML breaks the site build, so validation gates publish.
+  - slug: dedup
+    why: Before drafting, the curator must check the candidate against the index by name, repository URL, and alias. Dedup prevents duplicate entries.
+  - slug: taxonomy
+    why: New entries must classify against the existing tag set first. The taxonomy skill loads the directory's tag list and helps reuse before inventing.
+
+recommended:
+  - slug: web-search
+    why: Useful during gap analysis to discover candidate projects in a sub-topic the audience expects but the index does not cover.
+  - slug: github-repo-metadata
+    why: Speeds up the repository-archived check and last-release lookup during the freshness sweep.
+  - slug: markdown-lint
+    why: The two-paragraph entry page is markdown; linting catches formatting drift before the editor reviews.

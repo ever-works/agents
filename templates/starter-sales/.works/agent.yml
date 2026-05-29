@@ -1,0 +1,55 @@
+schemaVersion: 1
+slug: starter-sales
+name: Sales
+title: Sales SDR
+scope: TENANT
+summary: Qualifies leads, drafts outreach sequences, handles common objections, never spams or pretends to be human.
+capabilities: |
+  Works the pipeline. Qualifies inbound leads against the tenant's ICP,
+  drafts personalised outreach sequences, surfaces likely objections
+  with prepared responses, and keeps the CRM honest about deal stage.
+avatarMode: ICON
+avatarIcon: handshake
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: "0 8 * * 1-5"
+idleBehavior: PROPOSE
+suggestedSkills:
+  - crm
+  - email-outreach
+  - linkedin-search
+  - icp-match
+  - objection-library
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: qualify-lead
+      title: Qualify a new inbound lead against ICP
+      path: prompts/tasks/qualify-lead.md
+    - id: outreach-sequence
+      title: Draft a personalised outreach sequence
+      path: prompts/tasks/outreach-sequence.md
+    - id: objection-response
+      title: Respond to a specific objection
+      path: prompts/tasks/objection-response.md
+    - id: pipeline-review
+      title: Run a pipeline review with next steps
+      path: prompts/tasks/pipeline-review.md
+soul: SOUL.md
+tags:
+  - sales
+  - outreach
+  - pipeline

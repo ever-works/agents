@@ -6,88 +6,85 @@ wizard in the Workshop loads these templates from this repo so a user
 can pick a pre-built Agent (e.g. *Project Manager*, *Researcher*,
 *Curator*) and tweak it instead of writing one from scratch.
 
-> Status: bootstrap. Eight starter templates ship here. New templates
-> land via PR; the platform pulls `manifest.json` and the individual
-> `SOUL.md` files at build time.
+> Status: bootstrap. Eight starter templates ship here. This repo is
+> **private** until the catalog stabilises. New templates land via PR;
+> the platform pulls `manifest.json` and the per-template `.works/`
+> manifest at build time.
+
+For the long-form tour — SOUL.md format, `.works/` convention,
+cross-cutting guardrails, how the platform consumes the catalog — see
+[`OVERVIEW.md`](OVERVIEW.md).
 
 ## What lives here
 
 ```
 schema/
-  agent-template.schema.json   # JSON Schema for the YAML frontmatter in every SOUL.md
+  agent-manifest.schema.json   # JSON Schema for .works/agent.yml
+  skills.schema.json           # JSON Schema for skills.yml
+  eval.schema.json             # JSON Schema for eval/<slug>.yml
 templates/
-  starter-pm/SOUL.md           # Project Manager
-  starter-coder/SOUL.md        # Coder
-  starter-researcher/SOUL.md   # Researcher
-  starter-copywriter/SOUL.md   # Copywriter
-  starter-marketer/SOUL.md     # Marketer
-  starter-sales/SOUL.md        # Sales SDR
-  starter-support/SOUL.md      # Customer Support
-  starter-curator/SOUL.md      # Directory Curator (Ever Works specific)
-manifest.json                  # auto-built index the platform reads first
+  starter-pm/
+    .works/agent.yml           # platform manifest (parsed by the loader)
+    SOUL.md                    # personality contract (body-only)
+    README.md                  # wizard-preview card content
+    prompts/system.md          # runtime system prompt
+    prompts/tasks/*.md         # Quick-Action prompt scaffolds
+    skills.yml                 # required + recommended skill slugs
+    kb/README.md
+    kb/playbooks/, checklists/, templates/, examples/
+    icon.svg
+  starter-coder/        ...
+  starter-researcher/   ...
+  starter-copywriter/   ...
+  starter-marketer/     ...
+  starter-sales/        ...
+  starter-support/      ...
+  starter-curator/      ...
+eval/
+  <slug>.yml                   # conversation-level behavioral evals
+manifest.json                  # the loader's entry point
+.github/workflows/validate.yml # ajv + path + uniqueness checks on PR
 ```
 
-## Format — one Agent = one `SOUL.md`
+## The `.works/` convention
 
-Each template is a single Markdown file with **YAML frontmatter** for
-the fields the platform's Agent entity needs (name, scope, capabilities,
-permissions, idle behavior, suggested skills, etc.) and a **Markdown
-body** that describes the personality — identity, priorities, default
-behaviors, hard rules, output formats.
+Platform-mappable manifests live under `.works/`, not at the template
+root. Same convention used for Ever Works **Mission Templates** (see
+Workspace `notes/2026-05-24-missions-ideas-works-spec.md` §7.5). Humans
+browsing the repo see a clean top level; the loader knows to look in
+`.works/`.
 
-The body format mirrors the
-[Workspace personalities `SOUL.md`](https://github.com/ever-works/workspace/blob/develop/personalities/OVERVIEW.md)
-spec used by the internal agent on this workstation, so a template
-imported into the platform reads the same as one written by hand.
+For Agent templates that file is `.works/agent.yml`, validated against
+[`schema/agent-manifest.schema.json`](schema/agent-manifest.schema.json).
 
-See [`schema/agent-template.schema.json`](schema/agent-template.schema.json)
-for the canonical frontmatter contract.
+## SOUL.md — personality contract
+
+Each template ships a `SOUL.md` next to `.works/agent.yml`. It is
+body-only (no YAML frontmatter — that moved to `.works/agent.yml`) and
+follows the eight-section Workspace personality spec: Identity,
+Mission, Priorities, Default behaviors, Non-default behaviors, Hard
+rules, Preferred output formats, Skills / KB.
 
 ## How the platform consumes this repo
 
-1. At build time (or via a scheduled refresh), the platform fetches
-   `manifest.json` from this repo's `main` branch.
-2. For each entry it reads the listed `SOUL.md`, parses the YAML
-   frontmatter, and exposes the template in the **Create Agent
-   wizard → Template step**.
-3. When the user picks a template the wizard pre-fills name, title,
-   scope, capabilities, permissions, model, idle behavior, avatar icon
-   and a suggested set of skills. The user can override anything before
-   confirming.
+1. Loader reads `manifest.json` from the repo's default branch.
+2. For each entry it reads `templates/<slug>/.works/agent.yml`,
+   parses it, and pre-fills the Create-Agent wizard.
+3. `SOUL.md` is rendered into the new Agent's `personality` field.
+4. `kb.seedPaths` directories bulk-import into the Agent's runtime KB.
+5. `prompts/system.md` + `prompts/tasks/*` populate the Agent's system
+   prompt and Quick-Action menu.
+6. `skills.yml` drives the Skills step (required = locked, recommended
+   = pre-checked).
 
-The platform's `Agent` entity is defined in
-`packages/agent/src/entities/agent.entity.ts`; the wizard component is
-`apps/web/src/components/agents/NewAgentDialog.tsx`. Until the remote
-loader lands (tracked in ADR-010), there is a hardcoded fallback list
-at `apps/web/src/lib/api/agent-templates.ts` that mirrors the slugs in
-this repo.
+## Local validation
 
-## Adding a new template
-
-1. Fork or branch this repo.
-2. Pick a slug (lowercase, kebab-case, prefixed `starter-` for the
-   built-in set or your namespace for org-specific templates).
-3. Create `templates/<slug>/SOUL.md`:
-   - Fill the frontmatter — every field marked `required` in the schema.
-   - Write the personality body using the eight-section structure
-     (Identity, Mission, Priorities, Default behaviors, Non-default
-     behaviors, Hard rules, Preferred output formats, Skills/KB).
-4. Validate locally:
-   ```bash
-   npx ajv validate -s schema/agent-template.schema.json \
-     -d "templates/<slug>/SOUL.md" --frontmatter
-   ```
-5. Open a PR. CI checks the frontmatter against the schema and rebuilds
-   `manifest.json`.
-
-## Cross-cutting rules (apply to every template)
-
-The platform applies the cross-cutting guardrails described in the
-Workspace personalities OVERVIEW — truthfulness, ToS compliance,
-production awareness. Templates must not try to relax these. The
-`permissions` block in frontmatter sets *capabilities*, not *trust*.
+```bash
+npm install --no-save ajv ajv-cli ajv-formats yaml js-yaml
+# CI runs the same script as .github/workflows/validate.yml.
+```
 
 ## License
 
-Private. Internal Ever Works use only for now. We will revisit licensing
-once the catalog stabilises and we open it to the community.
+Private. Internal Ever Works use only for now. We will revisit
+licensing once the catalog stabilises and we open it to the community.

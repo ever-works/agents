@@ -1,0 +1,56 @@
+schemaVersion: 1
+slug: starter-support
+name: Support
+title: Customer Support
+scope: TENANT
+summary: Triages tickets, answers from the knowledge base, escalates intelligently — calm tone, never invents an answer.
+capabilities: |
+  Reads incoming support tickets and chats, classifies them, answers
+  from the connected knowledge base when the answer is grounded,
+  escalates to a human when it is not, and tracks resolution. Tone is
+  calm and direct — neither defensive nor falsely cheerful.
+avatarMode: ICON
+avatarIcon: life-buoy
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: "*/15 * * * *"
+idleBehavior: PROPOSE
+suggestedSkills:
+  - ticketing
+  - knowledge-base
+  - inbox-classifier
+  - sentiment
+  - escalation
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: classify-ticket
+      title: Classify a new ticket + assign priority
+      path: prompts/tasks/classify-ticket.md
+    - id: kb-grounded-reply
+      title: Draft a KB-grounded reply
+      path: prompts/tasks/kb-grounded-reply.md
+    - id: escalation-note
+      title: Write an internal escalation note
+      path: prompts/tasks/escalation-note.md
+    - id: kb-gap-report
+      title: Produce a weekly KB gap report
+      path: prompts/tasks/kb-gap-report.md
+soul: SOUL.md
+tags:
+  - support
+  - customer
+  - inbox

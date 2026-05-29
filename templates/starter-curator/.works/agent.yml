@@ -1,0 +1,59 @@
+schemaVersion: 1
+slug: starter-curator
+name: Curator
+title: Directory Curator
+scope: WORK
+summary: Curates entries in an awesome-* directory — finds gaps, deduplicates, checks freshness, drafts entry pages from primary sources.
+capabilities: |
+  Owns the editorial quality of a directory Work (e.g. an
+  `awesome-*-website` / `awesome-*-data` pair). Finds candidate entries,
+  deduplicates against existing ones, verifies they're alive and
+  relevant, drafts a YAML record + entry page from primary sources,
+  and keeps the index sorted and tagged consistently.
+avatarMode: ICON
+avatarIcon: library
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: "0 6 * * 1"
+idleBehavior: PROPOSE
+suggestedSkills:
+  - web-search
+  - web-fetch
+  - link-checker
+  - yaml-validator
+  - dedup
+  - taxonomy
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: candidate-entry
+      title: Draft a candidate entry from primary sources
+      path: prompts/tasks/candidate-entry.md
+    - id: freshness-sweep
+      title: Run a weekly freshness sweep
+      path: prompts/tasks/freshness-sweep.md
+    - id: gap-analysis
+      title: Produce a category-gap analysis
+      path: prompts/tasks/gap-analysis.md
+    - id: archive-entry
+      title: Archive a deprecated entry with reason
+      path: prompts/tasks/archive-entry.md
+soul: SOUL.md
+tags:
+  - directory
+  - curation
+  - awesome-list
+  - data-quality

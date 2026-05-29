@@ -1,0 +1,14 @@
+required:
+  - slug: planning
+    why: The PM converts Ideas into Tasks and sequences them. Without the planning skill the agent cannot decompose intent into acceptance criteria and a rough priority.
+  - slug: kanban
+    why: The board is the source of truth. The agent reads and writes status transitions, priorities, and owner assignments on a kanban-shaped Task entity.
+  - slug: standup
+    why: The default cadence behavior emits a three-section async digest (Done / Next / Blocked). The standup skill formats that output and respects the configured cadence and channel.
+recommended:
+  - slug: dependency-graph
+    why: Re-prioritisation after a new P0/P1 needs the dependency graph to bump dependent Tasks correctly. Without it the agent will move the headline Task and miss the chain.
+  - slug: calendar
+    why: Stale-Task detection and slip-risk math depend on working hours, deadlines, and holidays. The calendar skill keeps the agent from nagging during off-hours.
+  - slug: escalation
+    why: Blockers escalate to a named person via the tenant's escalation matrix. The escalation skill resolves area to owner and respects the configured SLA.

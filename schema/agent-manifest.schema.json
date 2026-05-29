@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ever-works/agents/blob/main/schema/agent-manifest.schema.json",
+  "title": "Ever Works — Agent Manifest (.works/agent.yml)",
+  "description": "Platform-mappable manifest for a single Agent template. Lives at templates/<slug>/.works/agent.yml. Mirrors the user-settable fields on the platform's Agent entity (packages/agent/src/entities/agent.entity.ts). The SOUL.md alongside this manifest is the personality contract and is NOT validated by this schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "slug",
+    "name",
+    "title",
+    "scope",
+    "summary",
+    "capabilities",
+    "permissions",
+    "kb",
+    "prompts",
+    "soul"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1,
+      "description": "Manifest schema version. Bumped only on breaking changes."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,60}$",
+      "description": "Unique slug, kebab-case. `starter-*` is reserved for built-in templates shipped from this repo."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "Short display name shown in the wizard chip (e.g. 'PM', 'Coder')."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Full role title (e.g. 'Project Manager')."
+    },
+    "scope": {
+      "enum": ["TENANT", "MISSION", "IDEA", "WORK"],
+      "description": "Default scope the wizard pre-selects. The user can change it."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 280,
+      "description": "One-sentence description shown under the template card in the wizard."
+    },
+    "capabilities": {
+      "type": "string",
+      "minLength": 16,
+      "description": "Multi-line description of what the agent does. Mapped to Agent.capabilities."
+    },
+    "avatarMode": {
+      "enum": ["INITIALS", "ICON", "IMAGE"],
+      "default": "ICON",
+      "description": "How the platform renders the agent's avatar."
+    },
+    "avatarIcon": {
+      "type": "string",
+      "maxLength": 64,
+      "description": "Lucide icon name. Required when avatarMode = ICON. See https://lucide.dev/icons."
+    },
+    "aiProviderId": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Optional preferred provider slug (e.g. 'anthropic', 'openai'). Leave empty to use the tenant default."
+    },
+    "modelId": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Optional preferred model id (e.g. 'claude-sonnet-4-6'). Leave empty to use the tenant default."
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Capabilities the wizard pre-fills. The tenant admin still has the final say at provision time.",
+      "properties": {
+        "canCreateAgents": { "type": "boolean", "default": false },
+        "canAssignTasks":  { "type": "boolean", "default": false },
+        "canEditSkills":   { "type": "boolean", "default": false },
+        "canApproveWork":  { "type": "boolean", "default": false },
+        "canSpendBudget":  { "type": "boolean", "default": false }
+      }
+    },
+    "heartbeatCadence": {
+      "type": ["string", "null"],
+      "maxLength": 64,
+      "description": "Cron expression. `null` (or omitted) means manual / no heartbeat."
+    },
+    "idleBehavior": {
+      "enum": ["PROPOSE", "NOOP", "OBSERVE"],
+      "default": "PROPOSE",
+      "description": "What the agent does when no task is queued."
+    },
+    "suggestedSkills": {
+      "type": "array",
+      "description": "Slugs of recommended skills the wizard pre-checks. The full skills.yml file alongside this manifest is the authoritative list.",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,60}$" },
+      "maxItems": 32
+    },
+    "kb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seedPaths", "citationPolicy"],
+      "description": "Knowledge base bulk-imported into the agent on create.",
+      "properties": {
+        "seedPaths": {
+          "type": "array",
+          "description": "Repo-relative paths (under the template folder) whose contents seed the agent's KB.",
+          "items": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "minItems": 1,
+          "maxItems": 32
+        },
+        "citationPolicy": {
+          "enum": ["prefer-internal", "mix", "external-ok"],
+          "description": "How aggressively the agent should ground claims in its KB."
+        }
+      }
+    },
+    "prompts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "tasks"],
+      "description": "Runtime prompts the platform composes when running this template.",
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "Template-relative path to the final runtime system prompt."
+        },
+        "tasks": {
+          "type": "array",
+          "description": "Quick-Action menu entries surfaced in the chat surface.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "title", "path"],
+            "properties": {
+              "id":    { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,60}$" },
+              "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+              "path":  { "type": "string", "minLength": 1, "maxLength": 200 }
+            }
+          },
+          "maxItems": 32
+        }
+      }
+    },
+    "soul": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Template-relative path to the SOUL.md personality contract. Conventionally 'SOUL.md'."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Free-form tags for filtering in the wizard.",
+      "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+      "maxItems": 16
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "avatarMode": { "const": "ICON" } },
+        "required": ["avatarMode"]
+      },
+      "then": { "required": ["avatarIcon"] }
+    },
+    {
+      "if": { "not": { "required": ["avatarMode"] } },
+      "then": { "required": ["avatarIcon"] }
+    }
+  ]
+}

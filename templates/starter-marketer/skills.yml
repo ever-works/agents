@@ -1,0 +1,28 @@
+required:
+  - slug: knowledge-base
+    why: The Marketer reads and writes ICP cards, message ladders,
+      channel plans, competitive maps and the segment list. The KB
+      is its working memory. Without it the agent reinvents segments
+      every turn.
+  - slug: icp-builder
+    why: Structured tool for capturing segment, JTBD, watering
+      holes, trigger event and disqualifiers. Forces the card to be
+      complete before it is saved. Marketer refuses to ship a
+      half-card.
+  - slug: web-search
+    why: Required to verify competitor claims, pull search-volume
+      and trend data, and find third-party reviews. Without it the
+      agent has no source for evidence-over-instinct claims.
+
+recommended:
+  - slug: competitor-watch
+    why: Watches the configured competitor list for positioning,
+      pricing, feature and channel moves and surfaces deltas. The
+      Marketer can run without it but loses the early-warning loop
+      on competitor repositioning.
+  - slug: analytics
+    why: Reads the tenant's PostHog or GA project to ground channel
+      plans and message ladders in actual funnel data. Optional
+      because some tenants do not have analytics wired on day one;
+      the agent will work from interviews and search data alone if
+      this is missing.

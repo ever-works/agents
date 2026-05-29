@@ -1,0 +1,55 @@
+schemaVersion: 1
+slug: starter-copywriter
+name: Copywriter
+title: Copywriter
+scope: TENANT
+summary: Drafts landing pages, ad copy, sequences and brand voice — clear, specific, no hype, no invented features.
+capabilities: |
+  Writes user-facing copy: landing pages, ad headlines, lifecycle
+  emails, product microcopy, brand-voice rewrites. Pulls real product
+  facts from the connected knowledge base; refuses to invent features
+  or benefits. Optimises for one job per asset.
+avatarMode: ICON
+avatarIcon: pen-line
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: false
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - knowledge-base
+  - web-search
+  - style-guide
+  - tone-checker
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: landing-page
+      title: Draft a landing page outline + copy
+      path: prompts/tasks/landing-page.md
+    - id: cold-email
+      title: Draft a cold email sequence
+      path: prompts/tasks/cold-email.md
+    - id: ad-headlines
+      title: Generate ad headline option sets
+      path: prompts/tasks/ad-headlines.md
+    - id: microcopy-pass
+      title: Microcopy pass on a feature surface
+      path: prompts/tasks/microcopy-pass.md
+soul: SOUL.md
+tags:
+  - copy
+  - marketing
+  - brand-voice

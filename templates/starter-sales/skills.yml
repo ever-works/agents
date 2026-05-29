@@ -1,0 +1,23 @@
+required:
+  - slug: crm
+    why: The agent must read deal stage, last signal, and next-step from
+      the tenant CRM and write back updates the same day. Without CRM
+      access the honest-CRM priority is impossible.
+  - slug: icp-match
+    why: Every lead is scored against the tenant ICP card before any
+      outreach is drafted. This skill loads the ICP card and exposes
+      the scoring primitives.
+  - slug: email-outreach
+    why: Email is the default channel. The skill provides send /
+      schedule / unsubscribe-aware enrollment so the agent cannot
+      re-enrol opted-out prospects.
+
+recommended:
+  - slug: linkedin-search
+    why: For roles where email is weak, LinkedIn lookup against
+      connected, approved sources finds the right contact without
+      scraping the gated feed.
+  - slug: objection-library
+    why: Stores and retrieves verbatim responses by objection class
+      and stage. Lets the agent reuse what works and propose new
+      entries when a novel objection appears.

@@ -1,6 +1,6 @@
 {
-  "$schema": "./schema/agent-template.schema.json",
-  "version": 1,
+  "$schema": "./schema/agent-manifest.schema.json",
+  "version": 2,
   "generatedBy": "manual",
   "templates": [
     {
@@ -11,7 +11,14 @@
       "scope": "TENANT",
       "avatarIcon": "kanban-square",
       "tags": ["coordination", "planning", "team"],
-      "path": "templates/starter-pm/SOUL.md"
+      "manifestPath": "templates/starter-pm/.works/agent.yml",
+      "soulPath": "templates/starter-pm/SOUL.md",
+      "readmePath": "templates/starter-pm/README.md",
+      "systemPromptPath": "templates/starter-pm/prompts/system.md",
+      "skillsPath": "templates/starter-pm/skills.yml",
+      "kbPath": "templates/starter-pm/kb",
+      "iconPath": "templates/starter-pm/icon.svg",
+      "evalPath": "eval/starter-pm.yml"
     },
     {
       "slug": "starter-coder",
@@ -21,7 +28,14 @@
       "scope": "WORK",
       "avatarIcon": "code-2",
       "tags": ["engineering", "code", "pr"],
-      "path": "templates/starter-coder/SOUL.md"
+      "manifestPath": "templates/starter-coder/.works/agent.yml",
+      "soulPath": "templates/starter-coder/SOUL.md",
+      "readmePath": "templates/starter-coder/README.md",
+      "systemPromptPath": "templates/starter-coder/prompts/system.md",
+      "skillsPath": "templates/starter-coder/skills.yml",
+      "kbPath": "templates/starter-coder/kb",
+      "iconPath": "templates/starter-coder/icon.svg",
+      "evalPath": "eval/starter-coder.yml"
     },
     {
       "slug": "starter-researcher",
@@ -31,7 +45,14 @@
       "scope": "TENANT",
       "avatarIcon": "telescope",
       "tags": ["research", "knowledge", "sources"],
-      "path": "templates/starter-researcher/SOUL.md"
+      "manifestPath": "templates/starter-researcher/.works/agent.yml",
+      "soulPath": "templates/starter-researcher/SOUL.md",
+      "readmePath": "templates/starter-researcher/README.md",
+      "systemPromptPath": "templates/starter-researcher/prompts/system.md",
+      "skillsPath": "templates/starter-researcher/skills.yml",
+      "kbPath": "templates/starter-researcher/kb",
+      "iconPath": "templates/starter-researcher/icon.svg",
+      "evalPath": "eval/starter-researcher.yml"
     },
     {
       "slug": "starter-copywriter",
@@ -41,7 +62,14 @@
       "scope": "TENANT",
       "avatarIcon": "pen-line",
       "tags": ["copy", "marketing", "brand-voice"],
-      "path": "templates/starter-copywriter/SOUL.md"
+      "manifestPath": "templates/starter-copywriter/.works/agent.yml",
+      "soulPath": "templates/starter-copywriter/SOUL.md",
+      "readmePath": "templates/starter-copywriter/README.md",
+      "systemPromptPath": "templates/starter-copywriter/prompts/system.md",
+      "skillsPath": "templates/starter-copywriter/skills.yml",
+      "kbPath": "templates/starter-copywriter/kb",
+      "iconPath": "templates/starter-copywriter/icon.svg",
+      "evalPath": "eval/starter-copywriter.yml"
     },
     {
       "slug": "starter-marketer",
@@ -51,7 +79,14 @@
       "scope": "TENANT",
       "avatarIcon": "target",
       "tags": ["marketing", "positioning", "strategy"],
-      "path": "templates/starter-marketer/SOUL.md"
+      "manifestPath": "templates/starter-marketer/.works/agent.yml",
+      "soulPath": "templates/starter-marketer/SOUL.md",
+      "readmePath": "templates/starter-marketer/README.md",
+      "systemPromptPath": "templates/starter-marketer/prompts/system.md",
+      "skillsPath": "templates/starter-marketer/skills.yml",
+      "kbPath": "templates/starter-marketer/kb",
+      "iconPath": "templates/starter-marketer/icon.svg",
+      "evalPath": "eval/starter-marketer.yml"
     },
     {
       "slug": "starter-sales",
@@ -61,7 +96,14 @@
       "scope": "TENANT",
       "avatarIcon": "handshake",
       "tags": ["sales", "outreach", "pipeline"],
-      "path": "templates/starter-sales/SOUL.md"
+      "manifestPath": "templates/starter-sales/.works/agent.yml",
+      "soulPath": "templates/starter-sales/SOUL.md",
+      "readmePath": "templates/starter-sales/README.md",
+      "systemPromptPath": "templates/starter-sales/prompts/system.md",
+      "skillsPath": "templates/starter-sales/skills.yml",
+      "kbPath": "templates/starter-sales/kb",
+      "iconPath": "templates/starter-sales/icon.svg",
+      "evalPath": "eval/starter-sales.yml"
     },
     {
       "slug": "starter-support",
@@ -71,7 +113,14 @@
       "scope": "TENANT",
       "avatarIcon": "life-buoy",
       "tags": ["support", "customer", "inbox"],
-      "path": "templates/starter-support/SOUL.md"
+      "manifestPath": "templates/starter-support/.works/agent.yml",
+      "soulPath": "templates/starter-support/SOUL.md",
+      "readmePath": "templates/starter-support/README.md",
+      "systemPromptPath": "templates/starter-support/prompts/system.md",
+      "skillsPath": "templates/starter-support/skills.yml",
+      "kbPath": "templates/starter-support/kb",
+      "iconPath": "templates/starter-support/icon.svg",
+      "evalPath": "eval/starter-support.yml"
     },
     {
       "slug": "starter-curator",
@@ -81,7 +130,14 @@
       "scope": "WORK",
       "avatarIcon": "library",
       "tags": ["directory", "curation", "awesome-list", "data-quality"],
-      "path": "templates/starter-curator/SOUL.md"
+      "manifestPath": "templates/starter-curator/.works/agent.yml",
+      "soulPath": "templates/starter-curator/SOUL.md",
+      "readmePath": "templates/starter-curator/README.md",
+      "systemPromptPath": "templates/starter-curator/prompts/system.md",
+      "skillsPath": "templates/starter-curator/skills.yml",
+      "kbPath": "templates/starter-curator/kb",
+      "iconPath": "templates/starter-curator/icon.svg",
+      "evalPath": "eval/starter-curator.yml"
     }
   ]
 }

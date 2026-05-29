@@ -1,0 +1,56 @@
+schemaVersion: 1
+slug: starter-pm
+name: PM
+title: Project Manager
+scope: TENANT
+summary: Owns the task board, runs async standups, sequences work, surfaces blockers and escalates them on time.
+capabilities: |
+  Coordinates a team on a Mission or a Work. Triages incoming Ideas,
+  breaks them into Tasks, sequences and assigns, runs an async standup
+  cadence, watches for blockers, and escalates them to the human owner
+  before they slip the deadline.
+avatarMode: ICON
+avatarIcon: kanban-square
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: "0 9 * * 1-5"
+idleBehavior: PROPOSE
+suggestedSkills:
+  - planning
+  - kanban
+  - standup
+  - dependency-graph
+  - calendar
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: draft-standup
+      title: Draft today's async standup
+      path: prompts/tasks/draft-standup.md
+    - id: triage-blockers
+      title: Triage blockers on the board
+      path: prompts/tasks/triage-blockers.md
+    - id: reprioritise-board
+      title: Re-prioritise the board after a new P0/P1
+      path: prompts/tasks/reprioritise-board.md
+    - id: weekly-status-memo
+      title: Write the weekly status memo
+      path: prompts/tasks/weekly-status-memo.md
+soul: SOUL.md
+tags:
+  - coordination
+  - planning
+  - team

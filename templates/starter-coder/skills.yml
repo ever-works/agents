@@ -1,0 +1,14 @@
+required:
+  - slug: git
+    why: The Coder branches, commits, and pushes for every Task. Without git the agent cannot do its job.
+  - slug: github-pr
+    why: Opening the PR, polling reviewers, and replying to inline comments all live in GitHub. The Coder loop depends on this skill.
+  - slug: test-runner
+    why: The Coder must run lint, type-check, and tests locally before pushing. The skill abstracts over per-Work commands (npm test, pytest, go test, etc.).
+recommended:
+  - slug: code-search
+    why: Read first, edit second. A fast repo-wide search makes the read step cheap, which is the difference between a careful diff and a guess.
+  - slug: lint
+    why: Some Works expose lint and format as separate from test. When present this skill lets the Coder fix style issues without round-tripping through the bot reviewers.
+  - slug: dep-graph
+    why: Useful when the Task touches shared code; the Coder uses it to find call sites and avoid breaking downstream consumers.

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ever-works/agents/blob/main/schema/skills.schema.json",
+  "title": "Ever Works — Agent Template Skills (skills.yml)",
+  "description": "Default skills attached when an Agent template is selected in the Create Agent wizard. Skill slugs resolve against the forthcoming ever-works/skills catalog. Unknown slugs are ignored by the wizard, not rejected.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["required", "recommended"],
+  "properties": {
+    "required": {
+      "type": "array",
+      "description": "Skills the wizard auto-attaches and locks. The user can remove them but the wizard warns.",
+      "items": { "$ref": "#/$defs/skillEntry" },
+      "maxItems": 32
+    },
+    "recommended": {
+      "type": "array",
+      "description": "Skills the wizard pre-checks but leaves the user free to deselect.",
+      "items": { "$ref": "#/$defs/skillEntry" },
+      "maxItems": 64
+    }
+  },
+  "$defs": {
+    "skillEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "why"],
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,60}$",
+          "description": "Skill slug, kebab-case. Resolves against ever-works/skills."
+        },
+        "why": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 200,
+          "description": "Short justification shown as a tooltip in the wizard."
+        }
+      }
+    }
+  }
+}
