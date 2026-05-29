@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ever-works/agents/blob/main/schema/agent-template.schema.json",
+  "title": "Ever Works — Agent Template",
+  "description": "YAML frontmatter contract for every SOUL.md template in this repo. Mirrors the user-settable fields on the platform's Agent entity (packages/agent/src/entities/agent.entity.ts).",
+  "type": "object",
+  "required": ["slug", "name", "title", "scope", "summary", "capabilities", "permissions"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,60}$",
+      "description": "Unique slug, kebab-case. `starter-*` is reserved for built-in templates shipped from this repo."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "Short display name shown in the wizard chip (e.g. 'PM', 'Coder')."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Full role title (e.g. 'Project Manager')."
+    },
+    "scope": {
+      "enum": ["TENANT", "MISSION", "IDEA", "WORK"],
+      "description": "Default scope the wizard pre-selects. The user can change it."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 280,
+      "description": "One-sentence description shown under the template card in the wizard."
+    },
+    "capabilities": {
+      "type": "string",
+      "minLength": 16,
+      "description": "Multi-line description of what the agent does. Mapped to Agent.capabilities."
+    },
+    "avatarMode": {
+      "enum": ["INITIALS", "ICON", "IMAGE"],
+      "default": "ICON"
+    },
+    "avatarIcon": {
+      "type": "string",
+      "description": "Lucide icon name. Required when avatarMode = ICON. Picked from https://lucide.dev/icons.",
+      "maxLength": 64
+    },
+    "aiProviderId": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Optional preferred provider slug (e.g. 'anthropic', 'openai'). Leave empty to use the tenant default."
+    },
+    "modelId": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Optional preferred model id (e.g. 'claude-sonnet-4-6'). Leave empty to use the tenant default."
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canAssignTasks"],
+      "properties": {
+        "canCreateAgents": { "type": "boolean", "default": false },
+        "canAssignTasks":  { "type": "boolean", "default": false },
+        "canEditSkills":   { "type": "boolean", "default": false },
+        "canApproveWork":  { "type": "boolean", "default": false },
+        "canSpendBudget":  { "type": "boolean", "default": false }
+      }
+    },
+    "heartbeatCadence": {
+      "type": ["string", "null"],
+      "description": "Cron expression. `null` (or omitted) means manual / no heartbeat.",
+      "maxLength": 64
+    },
+    "idleBehavior": {
+      "enum": ["PROPOSE", "NOOP", "OBSERVE"],
+      "default": "PROPOSE"
+    },
+    "suggestedSkills": {
+      "type": "array",
+      "description": "Slugs of recommended skills the wizard pre-checks. Skills repo lands separately.",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,60}$" },
+      "maxItems": 32
+    },
+    "tags": {
+      "type": "array",
+      "description": "Free-form tags for filtering in the wizard.",
+      "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+      "maxItems": 16
+    }
+  }
+}

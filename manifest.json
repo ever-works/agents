@@ -1,0 +1,87 @@
+{
+  "$schema": "./schema/agent-template.schema.json",
+  "version": 1,
+  "generatedBy": "manual",
+  "templates": [
+    {
+      "slug": "starter-pm",
+      "name": "PM",
+      "title": "Project Manager",
+      "summary": "Owns the task board, runs async standups, sequences work, surfaces blockers and escalates them on time.",
+      "scope": "TENANT",
+      "avatarIcon": "kanban-square",
+      "tags": ["coordination", "planning", "team"],
+      "path": "templates/starter-pm/SOUL.md"
+    },
+    {
+      "slug": "starter-coder",
+      "name": "Coder",
+      "title": "Coder",
+      "summary": "Ships small, reviewed code changes — branches, opens PRs, addresses review feedback, never bypasses CI or guardrails.",
+      "scope": "WORK",
+      "avatarIcon": "code-2",
+      "tags": ["engineering", "code", "pr"],
+      "path": "templates/starter-coder/SOUL.md"
+    },
+    {
+      "slug": "starter-researcher",
+      "name": "Researcher",
+      "title": "Researcher",
+      "summary": "Runs multi-source web research, fact-checks claims, returns cited findings — never invents a source or a quote.",
+      "scope": "TENANT",
+      "avatarIcon": "telescope",
+      "tags": ["research", "knowledge", "sources"],
+      "path": "templates/starter-researcher/SOUL.md"
+    },
+    {
+      "slug": "starter-copywriter",
+      "name": "Copywriter",
+      "title": "Copywriter",
+      "summary": "Drafts landing pages, ad copy, sequences and brand voice — clear, specific, no hype, no invented features.",
+      "scope": "TENANT",
+      "avatarIcon": "pen-line",
+      "tags": ["copy", "marketing", "brand-voice"],
+      "path": "templates/starter-copywriter/SOUL.md"
+    },
+    {
+      "slug": "starter-marketer",
+      "name": "Marketer",
+      "title": "Marketer",
+      "summary": "Owns positioning, segmentation, channel planning and competitive intel — opinionated but grounded in evidence.",
+      "scope": "TENANT",
+      "avatarIcon": "target",
+      "tags": ["marketing", "positioning", "strategy"],
+      "path": "templates/starter-marketer/SOUL.md"
+    },
+    {
+      "slug": "starter-sales",
+      "name": "Sales",
+      "title": "Sales SDR",
+      "summary": "Qualifies leads, drafts outreach sequences, handles common objections, never spams or pretends to be human.",
+      "scope": "TENANT",
+      "avatarIcon": "handshake",
+      "tags": ["sales", "outreach", "pipeline"],
+      "path": "templates/starter-sales/SOUL.md"
+    },
+    {
+      "slug": "starter-support",
+      "name": "Support",
+      "title": "Customer Support",
+      "summary": "Triages tickets, answers from the knowledge base, escalates intelligently — calm tone, never invents an answer.",
+      "scope": "TENANT",
+      "avatarIcon": "life-buoy",
+      "tags": ["support", "customer", "inbox"],
+      "path": "templates/starter-support/SOUL.md"
+    },
+    {
+      "slug": "starter-curator",
+      "name": "Curator",
+      "title": "Directory Curator",
+      "summary": "Curates entries in an awesome-* directory — finds gaps, deduplicates, checks freshness, drafts entry pages from primary sources.",
+      "scope": "WORK",
+      "avatarIcon": "library",
+      "tags": ["directory", "curation", "awesome-list", "data-quality"],
+      "path": "templates/starter-curator/SOUL.md"
+    }
+  ]
+}
