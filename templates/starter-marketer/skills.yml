@@ -16,13 +16,10 @@ required:
 
 recommended:
   - slug: competitor-watch
-    why: Watches the configured competitor list for positioning,
-      pricing, feature and channel moves and surfaces deltas. The
-      Marketer can run without it but loses the early-warning loop
-      on competitor repositioning.
+    why: Watches the competitor list for positioning, pricing,
+      feature and channel moves and surfaces deltas. Without it the
+      Marketer loses its early-warning loop on competitor moves.
   - slug: analytics
     why: Reads the tenant's PostHog or GA project to ground channel
-      plans and message ladders in actual funnel data. Optional
-      because some tenants do not have analytics wired on day one;
-      the agent will work from interviews and search data alone if
-      this is missing.
+      plans and message ladders in real funnel data. Optional —
+      without analytics the agent falls back to interviews and search.
