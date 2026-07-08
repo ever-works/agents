@@ -86,5 +86,4 @@ npm install --no-save ajv ajv-cli ajv-formats yaml js-yaml
 
 ## License
 
-Private. Internal Ever Works use only for now. We will revisit
-licensing once the catalog stabilises and we open it to the community.
+[Apache 2.0](LICENSE)
