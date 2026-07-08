@@ -7,7 +7,7 @@ on:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNNER_LINUX_X64_4 || 'ubuntu-latest' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -62,19 +62,19 @@ jobs:
             // (e) Slug uniqueness across manifest.json
             const seenSlugs = new Map();
             for (const tpl of manifest.templates) {
-              if (!tpl.slug) { note(`manifest entry missing slug: ${JSON.stringify(tpl)}`); continue; }
+              if (!tpl.slug) { note(manifest entry missing slug: $+{JSON.stringify(tpl)}+`); continue; }
               if (seenSlugs.has(tpl.slug)) {
-                note(`duplicate slug in manifest.json: ${tpl.slug}`);
+                note(duplicate slug in manifest.json: $+{tpl.slug}+`);
               }
               seenSlugs.set(tpl.slug, tpl);
             }
 
             // (f) Every manifest path exists
             for (const tpl of manifest.templates) {
-              if (!tpl.path) { note(`manifest entry ${tpl.slug} missing path`); continue; }
+              if (!tpl.path) { note(manifest entry $+{tpl.slug}+ missing path); continue; }
               const full = path.join(root, tpl.path);
               if (!fs.existsSync(full)) {
-                note(`manifest path missing on disk: ${tpl.path} (slug ${tpl.slug})`);
+                note(manifest path missing on disk: $+{tpl.path}+ (slug $+{tpl.slug}+));
               }
             }
 
@@ -83,45 +83,45 @@ jobs:
               const tplDir = path.join(root, "templates", tpl.slug);
               const agentYmlPath = path.join(tplDir, ".works", "agent.yml");
               if (!fs.existsSync(agentYmlPath)) {
-                note(`.works/agent.yml missing for ${tpl.slug}`);
+                note(.works/agent.yml missing for $+{tpl.slug}+`);
                 continue;
               }
               let agentDoc;
               try { agentDoc = readYAML(agentYmlPath); }
-              catch (e) { note(`.works/agent.yml YAML parse error for ${tpl.slug}: ${e.message}`); continue; }
+              catch (e) { note(.works/agent.yml YAML parse error for $+{tpl.slug}+: $+{e.message}+`); continue; }
 
               if (!validateAgent(agentDoc)) {
-                note(`.works/agent.yml schema errors for ${tpl.slug}: ` + ajv.errorsText(validateAgent.errors));
+                note(.works/agent.yml schema errors for $+{tpl.slug}+:  + ajv.errorsText(validateAgent.errors));
               }
 
               if (agentDoc && agentDoc.slug && agentDoc.slug !== tpl.slug) {
-                note(`slug mismatch for ${tpl.slug}: .works/agent.yml says ${agentDoc.slug}`);
+                note(slug mismatch for $+{tpl.slug}+: .works/agent.yml says $+{agentDoc.slug}+`);
               }
 
               // (g) Every prompts.tasks[].path exists, and prompts.system path exists
               if (agentDoc && agentDoc.prompts) {
                 const sysPath = path.join(tplDir, agentDoc.prompts.system || "");
                 if (!agentDoc.prompts.system || !fs.existsSync(sysPath)) {
-                  note(`prompts.system path missing for ${tpl.slug}: ${agentDoc.prompts.system}`);
+                  note(prompts.system path missing for $+{tpl.slug}+: $+{agentDoc.prompts.system}+`);
                 }
                 for (const task of (agentDoc.prompts.tasks || [])) {
                   const tp = path.join(tplDir, task.path || "");
                   if (!task.path || !fs.existsSync(tp)) {
-                    note(`prompts.tasks[${task.id}].path missing for ${tpl.slug}: ${task.path}`);
+                    note(prompts.tasks[$+{task.id}+].path missing for $+{tpl.slug}+: $+{task.path}+`);
                   }
                 }
                 // Also check the SOUL.md exists
                 if (agentDoc.soul) {
                   const soulPath = path.join(tplDir, agentDoc.soul);
                   if (!fs.existsSync(soulPath)) {
-                    note(`soul path missing for ${tpl.slug}: ${agentDoc.soul}`);
+                    note(soul path missing for $+{tpl.slug}+: $+{agentDoc.soul}+`);
                   }
                 }
                 // And every kb.seedPaths entry
                 for (const sp of ((agentDoc.kb || {}).seedPaths || [])) {
                   const spp = path.join(tplDir, sp);
                   if (!fs.existsSync(spp)) {
-                    note(`kb.seedPaths entry missing for ${tpl.slug}: ${sp}`);
+                    note(kb.seedPaths entry missing for $+{tpl.slug}+: $+{sp}+`);
                   }
                 }
               }
@@ -129,13 +129,13 @@ jobs:
               // skills.yml
               const skillsPath = path.join(tplDir, "skills.yml");
               if (!fs.existsSync(skillsPath)) {
-                note(`skills.yml missing for ${tpl.slug}`);
+                note(skills.yml missing for $+{tpl.slug}+`);
               } else {
                 let skillsDoc;
                 try { skillsDoc = readYAML(skillsPath); }
-                catch (e) { note(`skills.yml YAML parse error for ${tpl.slug}: ${e.message}`); continue; }
+                catch (e) { note(skills.yml YAML parse error for $+{tpl.slug}+: $+{e.message}+`); continue; }
                 if (!validateSkills(skillsDoc)) {
-                  note(`skills.yml schema errors for ${tpl.slug}: ` + ajv.errorsText(validateSkills.errors));
+                  note(skills.yml schema errors for $+{tpl.slug}+:  + ajv.errorsText(validateSkills.errors));
                 }
               }
             }
@@ -149,13 +149,13 @@ jobs:
                 const full = path.join(evalDir, file);
                 let doc;
                 try { doc = readYAML(full); }
-                catch (e) { note(`eval ${file} YAML parse error: ${e.message}`); continue; }
+                catch (e) { note(eval $+{file}+ YAML parse error: $+{e.message}+`); continue; }
                 if (!validateEval(doc)) {
-                  note(`eval ${file} schema errors: ` + ajv.errorsText(validateEval.errors));
+                  note(eval $+{file}+ schema errors:  + ajv.errorsText(validateEval.errors));
                   continue;
                 }
                 if (doc.slug && !evalSlugs.has(doc.slug)) {
-                  note(`eval ${file} references unknown slug: ${doc.slug}`);
+                  note(eval $+{file}+ references unknown slug: $+{doc.slug}+`);
                 }
               }
             }
@@ -166,7 +166,7 @@ jobs:
               process.exit(1);
             }
             console.log("All catalog files valid.");
-            console.log(`  templates: ${manifest.templates.length}`);
+            console.log(  templates: $+{manifest.templates.length}+`);
           '
 
       - name: Prettier check
