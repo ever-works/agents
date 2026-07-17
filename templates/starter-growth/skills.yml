@@ -1,0 +1,6 @@
+required: []
+recommended:
+  - slug: doc-maintenance
+    why: The Growth agent lands content and keeps site docs and briefs accurate against what shipped. Doc drift is an SEO liability, so this skill supports the content loop.
+  - slug: check-pr
+    why: Content and on-page fixes ship as PRs. This skill lets the agent verify a content/SEO PR is reviewed, checks pass, and the body is complete before merge.

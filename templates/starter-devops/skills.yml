@@ -1,0 +1,6 @@
+required: []
+recommended:
+  - slug: webapp-testing
+    why: After a fix or a deploy, the DevOps agent verifies the service actually works end-to-end (pages load, key flows pass) rather than trusting a green pipeline. This skill drives that check.
+  - slug: check-pr
+    why: Reliability fixes and config changes ship as PRs through the GitOps flow. This skill lets the agent confirm the change is reviewed, checks pass, and the rollback plan is in the PR before merge.

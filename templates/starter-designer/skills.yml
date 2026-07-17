@@ -1,0 +1,6 @@
+required: []
+recommended:
+  - slug: frontend-design
+    why: Core to the role — aesthetic direction, typography, and layout choices that read as intentional rather than templated. The Designer leans on this for every screen.
+  - slug: brand-guidelines
+    why: Resolves and applies the tenant's brand tokens (color, type) so designs stay on-brand instead of hard-coding values. Keeps the Designer consistent with the system.

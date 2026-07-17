@@ -6,7 +6,7 @@ wizard in the Workshop loads these templates from this repo so a user
 can pick a pre-built Agent (e.g. *Project Manager*, *Researcher*,
 *Curator*) and tweak it instead of writing one from scratch.
 
-> Status: bootstrap. Eight starter templates ship here. This repo is
+> Status: bootstrap. Twelve starter templates ship here. This repo is
 > **private** until the catalog stabilises. New templates land via PR;
 > the platform pulls `manifest.json` and the per-template `.works/`
 > manifest at build time.
@@ -83,6 +83,30 @@ rules, Preferred output formats, Skills / KB.
 npm install --no-save ajv ajv-cli ajv-formats yaml js-yaml
 # CI runs the same script as .github/workflows/validate.yml.
 ```
+
+## Sources & attribution
+
+The original eight starter templates (`starter-pm`, `starter-coder`,
+`starter-researcher`, `starter-copywriter`, `starter-marketer`,
+`starter-sales`, `starter-support`, `starter-curator`) are authored by
+Ever Co. LTD.
+
+Four additional role templates were adapted from permissively-licensed
+(MIT) public subagent collections. System prompts were rewritten into
+this repo's SOUL.md + `.works/agent.yml` format; the domain expertise is
+credited to the upstream authors.
+
+| Template(s) | Adapted from | License |
+|-------------|--------------|---------|
+| starter-growth | [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) (`seo-specialist`, `growth-loops`) + [wshobson/agents](https://github.com/wshobson/agents) (`seo-*`) | MIT |
+| starter-designer | [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) (`ui-designer`) + [wshobson/agents](https://github.com/wshobson/agents) (`ui-ux-designer`) | MIT |
+| starter-devops | [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) (`devops-engineer`, `sre-engineer`) + [wshobson/agents](https://github.com/wshobson/agents) (`devops-troubleshooter`) | MIT |
+| starter-founder | [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) (`product-manager`, `market-researcher`) | MIT |
+
+Both upstream repositories are MIT-licensed. Only MIT / permissively-licensed
+sources were used; repos without a clear permissive license
+(e.g. contains-studio/agents, dl-ezo/claude-code-sub-agents,
+crewAIInc/crewAI-examples) were intentionally excluded.
 
 ## License
 
