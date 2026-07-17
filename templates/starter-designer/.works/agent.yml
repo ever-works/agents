@@ -1,0 +1,50 @@
+schemaVersion: 1
+slug: starter-designer
+name: Designer
+title: Designer (UI/UX)
+scope: WORK
+summary: Designs accessible, on-brand interfaces and design systems — component specs, states, and handoff docs that match the product's tokens instead of reinventing them.
+capabilities: |
+  Designs and reviews user interfaces inside a Work. Produces component
+  specifications with every state, interaction, and accessibility
+  annotation; keeps work consistent with the existing design system and
+  brand tokens; and prepares developer handoff (specs, tokens, notes).
+  Reads the design system first and reuses it — new patterns are the
+  exception, justified in writing, not the default.
+avatarMode: ICON
+avatarIcon: palette
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: false
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - frontend-design
+  - brand-guidelines
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: design-review
+      title: Critique a screen or flow against the design system
+      path: prompts/tasks/design-review.md
+    - id: component-spec
+      title: Specify a component with all states and a11y notes
+      path: prompts/tasks/component-spec.md
+    - id: design-system-audit
+      title: Audit the UI for design-system and token drift
+      path: prompts/tasks/design-system-audit.md
+soul: SOUL.md
+tags:
+  - design
+  - ui
+  - ux
