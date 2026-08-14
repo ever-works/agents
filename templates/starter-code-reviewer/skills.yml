@@ -1,0 +1,10 @@
+required:
+  - slug: code-search
+    why: Findings must be verified against surrounding code and call sites, not just the diff hunk.
+  - slug: analyze-branch-bugs
+    why: Structured diff-scan for likely regressions is the core loop.
+recommended:
+  - slug: test-runner
+    why: Running the touched tests locally separates real findings from speculation.
+  - slug: dep-graph
+    why: A changed function's callers decide whether a subtle change is safe.

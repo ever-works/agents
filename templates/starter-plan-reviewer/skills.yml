@@ -1,0 +1,8 @@
+required:
+  - slug: code-search
+    why: Verifying a plan's claimed touch points against the actual repo is the core check.
+recommended:
+  - slug: dep-graph
+    why: Ordering-safety findings need caller/consumer evidence.
+  - slug: plan
+    why: Understanding the plan format it reviews.

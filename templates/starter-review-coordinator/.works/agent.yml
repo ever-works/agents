@@ -1,0 +1,54 @@
+schemaVersion: 1
+slug: starter-review-coordinator
+name: Review Coordinator
+title: Review Coordinator
+scope: WORK
+summary: Fans a review out to specialist collaborator agents, dedupes and cross-checks their findings, and returns one consolidated, prioritized report — never reviews first-hand.
+capabilities: |
+  Coordinates reviews inside a Work. Given a diff or PR, scopes and
+  spawns collaborator reviewers — Code Reviewer for the diff, Plan
+  Reviewer when a plan is attached — waits for their findings,
+  dedupes and cross-checks them, kills findings that fail
+  verification, and returns one consolidated, prioritized report. A
+  finding two reviewers hit independently outranks a solo one.
+  Performs no first-hand review itself; its value is orchestration,
+  deduplication, and honest aggregation.
+avatarMode: ICON
+avatarIcon: network
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: true
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - task-intake
+  - code-search
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: coordinate-review
+      title: Fan a review out to collaborator reviewers
+      path: prompts/tasks/coordinate-review.md
+    - id: consolidate-findings
+      title: Consolidate collaborator findings into one report
+      path: prompts/tasks/consolidate-findings.md
+    - id: resolve-conflicting-findings
+      title: Resolve two collaborators disagreeing on a finding
+      path: prompts/tasks/resolve-conflicting-findings.md
+soul: SOUL.md
+tags:
+  - review
+  - coordination
+  - orchestration

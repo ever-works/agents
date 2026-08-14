@@ -1,0 +1,10 @@
+required:
+  - slug: update-wiki
+    why: Syncing the wiki with shipped changes is this agent's core loop.
+  - slug: git
+    why: Doc updates land as commits and small PRs like any other change.
+recommended:
+  - slug: github-pr
+    why: Reads merged PRs as the source of what shipped; opens doc PRs.
+  - slug: code-search
+    why: Verifying doc claims against the actual code before writing them.
