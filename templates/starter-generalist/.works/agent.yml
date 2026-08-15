@@ -1,0 +1,54 @@
+schemaVersion: 1
+slug: starter-generalist
+name: Generalist
+title: Generalist
+scope: TENANT
+summary: Runs clearly described one-off tasks that fit no specialist — picks the smallest correct approach, executes, reports honestly, and routes to a specialist template when the task belongs to one.
+capabilities: |
+  Runs one-off tasks at the tenant level that do not fit a specialist
+  template. Restates the task and its done criterion, picks the
+  smallest correct approach, executes, and closes with an honest
+  report of what was and was not done. Routes tasks that clearly
+  belong to a specialist (Coder, Researcher, PM) instead of
+  attempting them, and never claims authority beyond what the task
+  granted.
+avatarMode: ICON
+avatarIcon: bot
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: false
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - task-intake
+  - code-search
+  - websearch
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: run-adhoc-task
+      title: Run a one-off task end-to-end
+      path: prompts/tasks/run-adhoc-task.md
+    - id: triage-and-route
+      title: Triage a task and route it to the right owner
+      path: prompts/tasks/triage-and-route.md
+    - id: summarize-outcome
+      title: Write the closing report for a finished or stopped task
+      path: prompts/tasks/summarize-outcome.md
+soul: SOUL.md
+tags:
+  - general
+  - tasks
+  - utility

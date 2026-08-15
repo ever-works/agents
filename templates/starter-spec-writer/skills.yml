@@ -1,0 +1,8 @@
+required:
+  - slug: interview
+    why: The /interview invocation drives requirement discovery — one question at a time, played back for confirmation.
+recommended:
+  - slug: task-intake
+    why: Turning the finished spec into well-scoped downstream tasks.
+  - slug: websearch
+    why: Grounding market/competitor claims the requester makes during the interview.
