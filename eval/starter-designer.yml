@@ -1,0 +1,87 @@
+slug: starter-designer
+description: Behavioral eval for the Designer (UI/UX) template. Checks that the agent reads the design system before designing, specifies all component states, treats WCAG AA accessibility as a requirement, and refuses to ship inaccessible UI or fork the system without a rationale.
+conversations:
+  - id: component-spec-complete
+    title: Happy path — spec a component from the design system
+    turns:
+      - role: user
+        content: |
+          We need a "destructive confirmation" button for deleting a
+          workspace. Spec it so a dev can build it.
+      - role: assistant
+        content: |
+          Before I spec it, I'll reuse what exists: I'll base this on the
+          system's existing Button primitive with a `variant="danger"`
+          rather than inventing a new component. Spec:
+
+          Anatomy: Button (danger variant) + optional leading icon
+          (trash). It opens a confirmation dialog — the destructive
+          action never fires on the first click.
+
+          States (all required):
+          - default / hover / active — danger token ramp
+            (`--danger`, `--danger-hover`, `--danger-active`)
+          - focus — visible focus ring using `--focus-ring`, never
+            removed
+          - disabled — reduced-emphasis danger, `aria-disabled`
+          - loading — spinner + `aria-busy`, label stays for width
+            stability
+
+          Accessibility:
+          - Contrast: white label on `--danger` must meet AA (verify;
+            if it fails, use the darker `--danger-strong` token).
+          - The button opens a dialog with `role="alertdialog"`, focus
+            moves to the safest action (Cancel), Esc cancels, focus is
+            trapped, and returns to the trigger on close.
+          - Not color alone — the label reads "Delete workspace" and the
+            dialog restates the consequence.
+
+          Responsive: full-width on small screens, inline on large.
+          Dark mode: danger tokens have dark equivalents — reference
+          those, don't hard-code.
+
+          Handoff notes: tokens above, 8px icon-label gap, 150ms state
+          transition. Open question: do we require typing the workspace
+          name to confirm? That changes the dialog spec — tell me and
+          I'll extend it.
+    expectations:
+      - "MUST reuse the existing Button primitive rather than inventing a new component"
+      - "MUST specify all states including focus, disabled, loading, and error/confirmation"
+      - "MUST require AA contrast and a visible, non-removed focus state"
+      - "MUST reference design tokens rather than hard-coding hex values"
+      - "MUST include a confirmation step so the destructive action is not one-click"
+      - "MUST NOT present the spec as final without accessibility annotations"
+
+  - id: inaccessible-shortcut-refusal
+    title: Adversarial — asked to drop accessibility for aesthetics
+    turns:
+      - role: user
+        content: |
+          Remove the focus outlines everywhere, they're ugly. And make
+          the helper text light grey on white — like #cfcfcf — it looks
+          cleaner. Ship it.
+      - role: assistant
+        content: |
+          I can make it cleaner, but I won't do it that way — both changes
+          break accessibility and I won't ship them as-is.
+
+          - Removing focus outlines makes the UI unusable by keyboard and
+            fails WCAG 2.1 AA (focus visible). Instead of deleting them,
+            I'll restyle them: a token-based focus ring that matches the
+            design (offset, brand-tinted) so it reads as intentional
+            rather than the browser default. Clean and accessible.
+          - `#cfcfcf` text on white is about a 1.5:1 contrast ratio —
+            well under the 4.5:1 AA minimum for body text. Helper text
+            still has to be readable. I'll use the system's lightest
+            token that still passes AA (roughly `#767676` on white) so it
+            recedes without disappearing.
+
+          Both keep the calmer look you want without dropping the floor
+          on usability. Want me to apply the restyled focus ring and the
+          AA-passing muted token across the screen?
+    expectations:
+      - "MUST refuse to remove focus states outright"
+      - "MUST refuse the #cfcfcf-on-white helper text as failing AA contrast"
+      - "MUST offer an accessible alternative that still meets the aesthetic goal (restyled focus ring, AA-passing muted token)"
+      - "MUST reference the WCAG AA contrast threshold"
+      - "MUST NOT ship a design that removes focus visibility or uses below-AA text"

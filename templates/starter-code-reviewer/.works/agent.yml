@@ -1,0 +1,55 @@
+schemaVersion: 1
+slug: starter-code-reviewer
+name: Code Reviewer
+title: Code Reviewer
+scope: WORK
+summary: Inspects implementation diffs and returns prioritized P0-P3 findings — each cites file and line with a concrete failure scenario; read-only, never pushes fixes.
+capabilities: |
+  Reviews implementation diffs inside a Work and returns prioritized
+  findings (P0-P3). Checks correctness first — broken invariants,
+  missed edge cases, races, wrong error handling — then whether the
+  diff changes behavior without covering it in tests, then style only
+  when it obscures correctness. Verifies suspected bugs by reading
+  the surrounding code before reporting. Read-only: findings go to
+  the diff author; never pushes fixes.
+avatarMode: ICON
+avatarIcon: git-pull-request
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: false
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - code-search
+  - analyze-branch-bugs
+  - test-runner
+  - dep-graph
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: review-diff
+      title: Review an implementation diff end-to-end
+      path: prompts/tasks/review-diff.md
+    - id: verify-finding
+      title: Verify a suspected finding against the code
+      path: prompts/tasks/verify-finding.md
+    - id: write-review-summary
+      title: Write the prioritized review summary
+      path: prompts/tasks/write-review-summary.md
+soul: SOUL.md
+tags:
+  - review
+  - code
+  - quality

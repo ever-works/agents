@@ -1,0 +1,6 @@
+required: []
+recommended:
+  - slug: internal-comms
+    why: A founder/strategist constantly writes leadership updates, stakeholder briefs, and Mission summaries. This skill gives those the formats the company expects, so alignment lands.
+  - slug: doc-maintenance
+    why: Strategy and spec docs drift as reality moves. This skill lets the agent audit those docs against what actually shipped and keep the Mission's source of truth accurate.

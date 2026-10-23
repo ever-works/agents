@@ -93,7 +93,7 @@ Run the same script locally:
 
 ```bash
 npm install --no-save ajv ajv-cli ajv-formats yaml js-yaml
-# then paste the inline node -e script from validate.yml
+node scripts/validate.js
 ```
 
 ## Style notes

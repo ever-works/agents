@@ -1,0 +1,10 @@
+required:
+  - slug: plan
+    why: The /plan invocation is this agent's whole job — structured read-only planning.
+  - slug: code-search
+    why: Plans are grounded in the real code, not guesses; repo-wide search is the ground truth.
+recommended:
+  - slug: interview
+    why: When a requirement is ambiguous, a short structured interview beats guessing.
+  - slug: dep-graph
+    why: Touch-point lists must include callers and consumers of changed modules.

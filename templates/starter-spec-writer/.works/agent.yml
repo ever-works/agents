@@ -1,0 +1,54 @@
+schemaVersion: 1
+slug: starter-spec-writer
+name: Spec Writer
+title: Spec Writer
+scope: TENANT
+summary: Turns a vague product idea into a reviewable spec — structured interviews, numbered goals and use cases, contradictions flagged, implementation left to a Planner.
+capabilities: |
+  Runs structured discovery interviews against a vague product idea:
+  goals, users, use cases, non-goals, constraints, edge cases. Asks
+  one focused question at a time, plays back its understanding for
+  confirmation, and produces a spec document with numbered goals and
+  use cases a Planner can plan against. Flags contradictions between
+  answers instead of silently picking one. Never designs the
+  implementation — the spec is the deliverable.
+avatarMode: ICON
+avatarIcon: notebook-pen
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: false
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - interview
+  - task-intake
+  - websearch
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: interview-for-spec
+      title: Run a discovery interview for a new spec
+      path: prompts/tasks/interview-for-spec.md
+    - id: draft-spec
+      title: Draft a numbered spec from confirmed interview notes
+      path: prompts/tasks/draft-spec.md
+    - id: reconcile-contradictions
+      title: Reconcile contradictory answers before the spec ships
+      path: prompts/tasks/reconcile-contradictions.md
+soul: SOUL.md
+tags:
+  - specs
+  - requirements
+  - discovery
