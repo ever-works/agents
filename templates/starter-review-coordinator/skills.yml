@@ -1,0 +1,6 @@
+required:
+  - slug: task-intake
+    why: Turning "review this" into scoped subtasks for collaborators is the first step of every run.
+recommended:
+  - slug: code-search
+    why: Spot-checking a disputed finding before including it in the consolidated report.

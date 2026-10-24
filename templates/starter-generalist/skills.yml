@@ -1,0 +1,8 @@
+required:
+  - slug: task-intake
+    why: Every Generalist run starts from a free-form task; structured intake keeps scope explicit.
+recommended:
+  - slug: code-search
+    why: Many ad-hoc tasks start with finding where something lives in a repo.
+  - slug: websearch
+    why: One-off questions often need a quick, cited external lookup.

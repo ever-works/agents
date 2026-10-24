@@ -11,7 +11,11 @@
       "summary": "Owns the task board, runs async standups, sequences work, surfaces blockers and escalates them on time.",
       "scope": "TENANT",
       "avatarIcon": "kanban-square",
-      "tags": ["coordination", "planning", "team"],
+      "tags": [
+        "coordination",
+        "planning",
+        "team"
+      ],
       "manifestPath": "templates/starter-pm/.works/agent.yml",
       "soulPath": "templates/starter-pm/SOUL.md",
       "readmePath": "templates/starter-pm/README.md",
@@ -29,7 +33,11 @@
       "summary": "Ships small, reviewed code changes — branches, opens PRs, addresses review feedback, never bypasses CI or guardrails.",
       "scope": "WORK",
       "avatarIcon": "code-2",
-      "tags": ["engineering", "code", "pr"],
+      "tags": [
+        "engineering",
+        "code",
+        "pr"
+      ],
       "manifestPath": "templates/starter-coder/.works/agent.yml",
       "soulPath": "templates/starter-coder/SOUL.md",
       "readmePath": "templates/starter-coder/README.md",
@@ -47,7 +55,11 @@
       "summary": "Runs multi-source web research, fact-checks claims, returns cited findings — never invents a source or a quote.",
       "scope": "TENANT",
       "avatarIcon": "telescope",
-      "tags": ["research", "knowledge", "sources"],
+      "tags": [
+        "research",
+        "knowledge",
+        "sources"
+      ],
       "manifestPath": "templates/starter-researcher/.works/agent.yml",
       "soulPath": "templates/starter-researcher/SOUL.md",
       "readmePath": "templates/starter-researcher/README.md",
@@ -65,7 +77,11 @@
       "summary": "Drafts landing pages, ad copy, sequences and brand voice — clear, specific, no hype, no invented features.",
       "scope": "TENANT",
       "avatarIcon": "pen-line",
-      "tags": ["copy", "marketing", "brand-voice"],
+      "tags": [
+        "copy",
+        "marketing",
+        "brand-voice"
+      ],
       "manifestPath": "templates/starter-copywriter/.works/agent.yml",
       "soulPath": "templates/starter-copywriter/SOUL.md",
       "readmePath": "templates/starter-copywriter/README.md",
@@ -83,7 +99,11 @@
       "summary": "Owns positioning, segmentation, channel planning and competitive intel — opinionated but grounded in evidence.",
       "scope": "TENANT",
       "avatarIcon": "target",
-      "tags": ["marketing", "positioning", "strategy"],
+      "tags": [
+        "marketing",
+        "positioning",
+        "strategy"
+      ],
       "manifestPath": "templates/starter-marketer/.works/agent.yml",
       "soulPath": "templates/starter-marketer/SOUL.md",
       "readmePath": "templates/starter-marketer/README.md",
@@ -101,7 +121,11 @@
       "summary": "Qualifies leads, drafts outreach sequences, handles common objections, never spams or pretends to be human.",
       "scope": "TENANT",
       "avatarIcon": "handshake",
-      "tags": ["sales", "outreach", "pipeline"],
+      "tags": [
+        "sales",
+        "outreach",
+        "pipeline"
+      ],
       "manifestPath": "templates/starter-sales/.works/agent.yml",
       "soulPath": "templates/starter-sales/SOUL.md",
       "readmePath": "templates/starter-sales/README.md",
@@ -119,7 +143,11 @@
       "summary": "Triages tickets, answers from the knowledge base, escalates intelligently — calm tone, never invents an answer.",
       "scope": "TENANT",
       "avatarIcon": "life-buoy",
-      "tags": ["support", "customer", "inbox"],
+      "tags": [
+        "support",
+        "customer",
+        "inbox"
+      ],
       "manifestPath": "templates/starter-support/.works/agent.yml",
       "soulPath": "templates/starter-support/SOUL.md",
       "readmePath": "templates/starter-support/README.md",
@@ -137,7 +165,12 @@
       "summary": "Curates entries in an awesome-* directory — finds gaps, deduplicates, checks freshness, drafts entry pages from primary sources.",
       "scope": "WORK",
       "avatarIcon": "library",
-      "tags": ["directory", "curation", "awesome-list", "data-quality"],
+      "tags": [
+        "directory",
+        "curation",
+        "awesome-list",
+        "data-quality"
+      ],
       "manifestPath": "templates/starter-curator/.works/agent.yml",
       "soulPath": "templates/starter-curator/SOUL.md",
       "readmePath": "templates/starter-curator/README.md",
@@ -155,7 +188,11 @@
       "summary": "Designs compounding growth loops and runs white-hat SEO — audits, keyword strategy, content briefs, and experiments grounded in analytics, never in tricks or spam.",
       "scope": "TENANT",
       "avatarIcon": "trending-up",
-      "tags": ["growth", "seo", "marketing"],
+      "tags": [
+        "growth",
+        "seo",
+        "marketing"
+      ],
       "manifestPath": "templates/starter-growth/.works/agent.yml",
       "soulPath": "templates/starter-growth/SOUL.md",
       "readmePath": "templates/starter-growth/README.md",
@@ -173,7 +210,11 @@
       "summary": "Designs accessible, on-brand interfaces and design systems — component specs, states, and handoff docs that match the product's tokens instead of reinventing them.",
       "scope": "WORK",
       "avatarIcon": "palette",
-      "tags": ["design", "ui", "ux"],
+      "tags": [
+        "design",
+        "ui",
+        "ux"
+      ],
       "manifestPath": "templates/starter-designer/.works/agent.yml",
       "soulPath": "templates/starter-designer/SOUL.md",
       "readmePath": "templates/starter-designer/README.md",
@@ -191,7 +232,11 @@
       "summary": "Keeps services reliable — triages incidents from evidence, gates risky deploys, and builds observability. Facts before hypotheses, minimal-impact fixes, no destructive ops without approval.",
       "scope": "WORK",
       "avatarIcon": "server-cog",
-      "tags": ["devops", "sre", "reliability"],
+      "tags": [
+        "devops",
+        "sre",
+        "reliability"
+      ],
       "manifestPath": "templates/starter-devops/.works/agent.yml",
       "soulPath": "templates/starter-devops/SOUL.md",
       "readmePath": "templates/starter-devops/README.md",
@@ -209,7 +254,11 @@
       "summary": "Shapes a Mission from opportunity to roadmap — sizes the market, sharpens positioning, prioritises ruthlessly, and separates assumption from evidence. Opinionated, never invents data.",
       "scope": "MISSION",
       "avatarIcon": "rocket",
-      "tags": ["founder", "product", "strategy"],
+      "tags": [
+        "founder",
+        "product",
+        "strategy"
+      ],
       "manifestPath": "templates/starter-founder/.works/agent.yml",
       "soulPath": "templates/starter-founder/SOUL.md",
       "readmePath": "templates/starter-founder/README.md",
@@ -218,6 +267,204 @@
       "kbPath": "templates/starter-founder/kb",
       "iconPath": "templates/starter-founder/icon.svg",
       "evalPath": "eval/starter-founder.yml"
+    },
+    {
+      "slug": "starter-code-reviewer",
+      "path": "templates/starter-code-reviewer",
+      "name": "Code Reviewer",
+      "title": "Code Reviewer",
+      "summary": "Inspects implementation diffs and returns prioritized P0-P3 findings — each cites file and line with a concrete failure scenario; read-only, never pushes fixes.",
+      "scope": "WORK",
+      "avatarIcon": "git-pull-request",
+      "tags": [
+        "review",
+        "code",
+        "quality"
+      ],
+      "manifestPath": "templates/starter-code-reviewer/.works/agent.yml",
+      "soulPath": "templates/starter-code-reviewer/SOUL.md",
+      "readmePath": "templates/starter-code-reviewer/README.md",
+      "systemPromptPath": "templates/starter-code-reviewer/prompts/system.md",
+      "skillsPath": "templates/starter-code-reviewer/skills.yml",
+      "kbPath": "templates/starter-code-reviewer/kb",
+      "iconPath": "templates/starter-code-reviewer/icon.svg",
+      "evalPath": "eval/starter-code-reviewer.yml"
+    },
+    {
+      "slug": "starter-generalist",
+      "path": "templates/starter-generalist",
+      "name": "Generalist",
+      "title": "Generalist",
+      "summary": "Runs clearly described one-off tasks that fit no specialist — picks the smallest correct approach, executes, reports honestly, and routes to a specialist template when the task belongs to one.",
+      "scope": "TENANT",
+      "avatarIcon": "bot",
+      "tags": [
+        "general",
+        "tasks",
+        "utility"
+      ],
+      "manifestPath": "templates/starter-generalist/.works/agent.yml",
+      "soulPath": "templates/starter-generalist/SOUL.md",
+      "readmePath": "templates/starter-generalist/README.md",
+      "systemPromptPath": "templates/starter-generalist/prompts/system.md",
+      "skillsPath": "templates/starter-generalist/skills.yml",
+      "kbPath": "templates/starter-generalist/kb",
+      "iconPath": "templates/starter-generalist/icon.svg",
+      "evalPath": "eval/starter-generalist.yml"
+    },
+    {
+      "slug": "starter-librarian",
+      "path": "templates/starter-librarian",
+      "name": "Librarian",
+      "title": "Librarian",
+      "summary": "Keeps the Work's internal docs in sync with shipped code — updates wiki pages and runbooks via small PRs, fixes stale examples and dead links, never documents unverified behavior.",
+      "scope": "WORK",
+      "avatarIcon": "library",
+      "tags": [
+        "docs",
+        "knowledge",
+        "maintenance"
+      ],
+      "manifestPath": "templates/starter-librarian/.works/agent.yml",
+      "soulPath": "templates/starter-librarian/SOUL.md",
+      "readmePath": "templates/starter-librarian/README.md",
+      "systemPromptPath": "templates/starter-librarian/prompts/system.md",
+      "skillsPath": "templates/starter-librarian/skills.yml",
+      "kbPath": "templates/starter-librarian/kb",
+      "iconPath": "templates/starter-librarian/icon.svg",
+      "evalPath": "eval/starter-librarian.yml"
+    },
+    {
+      "slug": "starter-plan-executor",
+      "path": "templates/starter-plan-executor",
+      "name": "Plan Executor",
+      "title": "Plan Executor",
+      "summary": "Ships an approved plan exactly as written — executes each step in order, checks it off, and stops to report when reality diverges instead of improvising a new design.",
+      "scope": "WORK",
+      "avatarIcon": "list-checks",
+      "tags": [
+        "engineering",
+        "execution",
+        "pr"
+      ],
+      "manifestPath": "templates/starter-plan-executor/.works/agent.yml",
+      "soulPath": "templates/starter-plan-executor/SOUL.md",
+      "readmePath": "templates/starter-plan-executor/README.md",
+      "systemPromptPath": "templates/starter-plan-executor/prompts/system.md",
+      "skillsPath": "templates/starter-plan-executor/skills.yml",
+      "kbPath": "templates/starter-plan-executor/kb",
+      "iconPath": "templates/starter-plan-executor/icon.svg",
+      "evalPath": "eval/starter-plan-executor.yml"
+    },
+    {
+      "slug": "starter-plan-reviewer",
+      "path": "templates/starter-plan-reviewer",
+      "name": "Plan Reviewer",
+      "title": "Plan Reviewer",
+      "summary": "Reviews implementation plans before any code is written and returns prioritized P0-P3 findings — coverage gaps, phantom touch points, unsafe ordering, missing rollback — without rewriting the plan.",
+      "scope": "WORK",
+      "avatarIcon": "file-search",
+      "tags": [
+        "review",
+        "planning",
+        "quality"
+      ],
+      "manifestPath": "templates/starter-plan-reviewer/.works/agent.yml",
+      "soulPath": "templates/starter-plan-reviewer/SOUL.md",
+      "readmePath": "templates/starter-plan-reviewer/README.md",
+      "systemPromptPath": "templates/starter-plan-reviewer/prompts/system.md",
+      "skillsPath": "templates/starter-plan-reviewer/skills.yml",
+      "kbPath": "templates/starter-plan-reviewer/kb",
+      "iconPath": "templates/starter-plan-reviewer/icon.svg",
+      "evalPath": "eval/starter-plan-reviewer.yml"
+    },
+    {
+      "slug": "starter-planner",
+      "path": "templates/starter-planner",
+      "name": "Planner",
+      "title": "Planning Agent",
+      "summary": "Turns a feature request or bug into an implementation plan with file-level touch points, ordering, risks, and a verification strategy — before any code is written.",
+      "scope": "WORK",
+      "avatarIcon": "map",
+      "tags": [
+        "planning",
+        "engineering",
+        "design"
+      ],
+      "manifestPath": "templates/starter-planner/.works/agent.yml",
+      "soulPath": "templates/starter-planner/SOUL.md",
+      "readmePath": "templates/starter-planner/README.md",
+      "systemPromptPath": "templates/starter-planner/prompts/system.md",
+      "skillsPath": "templates/starter-planner/skills.yml",
+      "kbPath": "templates/starter-planner/kb",
+      "iconPath": "templates/starter-planner/icon.svg",
+      "evalPath": "eval/starter-planner.yml"
+    },
+    {
+      "slug": "starter-review-coordinator",
+      "path": "templates/starter-review-coordinator",
+      "name": "Review Coordinator",
+      "title": "Review Coordinator",
+      "summary": "Fans a review out to specialist collaborator agents, dedupes and cross-checks their findings, and returns one consolidated, prioritized report — never reviews first-hand.",
+      "scope": "WORK",
+      "avatarIcon": "network",
+      "tags": [
+        "review",
+        "coordination",
+        "orchestration"
+      ],
+      "manifestPath": "templates/starter-review-coordinator/.works/agent.yml",
+      "soulPath": "templates/starter-review-coordinator/SOUL.md",
+      "readmePath": "templates/starter-review-coordinator/README.md",
+      "systemPromptPath": "templates/starter-review-coordinator/prompts/system.md",
+      "skillsPath": "templates/starter-review-coordinator/skills.yml",
+      "kbPath": "templates/starter-review-coordinator/kb",
+      "iconPath": "templates/starter-review-coordinator/icon.svg",
+      "evalPath": "eval/starter-review-coordinator.yml"
+    },
+    {
+      "slug": "starter-senior-dev",
+      "path": "templates/starter-senior-dev",
+      "name": "Senior Dev",
+      "title": "Senior Developer",
+      "summary": "Takes the ambiguous, cross-cutting, or risky changes — weighs trade-offs, ships small correct diffs, and mentors through PR descriptions that teach.",
+      "scope": "WORK",
+      "avatarIcon": "hammer",
+      "tags": [
+        "engineering",
+        "code",
+        "quality"
+      ],
+      "manifestPath": "templates/starter-senior-dev/.works/agent.yml",
+      "soulPath": "templates/starter-senior-dev/SOUL.md",
+      "readmePath": "templates/starter-senior-dev/README.md",
+      "systemPromptPath": "templates/starter-senior-dev/prompts/system.md",
+      "skillsPath": "templates/starter-senior-dev/skills.yml",
+      "kbPath": "templates/starter-senior-dev/kb",
+      "iconPath": "templates/starter-senior-dev/icon.svg",
+      "evalPath": "eval/starter-senior-dev.yml"
+    },
+    {
+      "slug": "starter-spec-writer",
+      "path": "templates/starter-spec-writer",
+      "name": "Spec Writer",
+      "title": "Spec Writer",
+      "summary": "Turns a vague product idea into a reviewable spec — structured interviews, numbered goals and use cases, contradictions flagged, implementation left to a Planner.",
+      "scope": "TENANT",
+      "avatarIcon": "notebook-pen",
+      "tags": [
+        "specs",
+        "requirements",
+        "discovery"
+      ],
+      "manifestPath": "templates/starter-spec-writer/.works/agent.yml",
+      "soulPath": "templates/starter-spec-writer/SOUL.md",
+      "readmePath": "templates/starter-spec-writer/README.md",
+      "systemPromptPath": "templates/starter-spec-writer/prompts/system.md",
+      "skillsPath": "templates/starter-spec-writer/skills.yml",
+      "kbPath": "templates/starter-spec-writer/kb",
+      "iconPath": "templates/starter-spec-writer/icon.svg",
+      "evalPath": "eval/starter-spec-writer.yml"
     }
   ]
 }

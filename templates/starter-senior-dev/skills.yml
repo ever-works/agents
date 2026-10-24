@@ -1,0 +1,14 @@
+required:
+  - slug: git
+    why: Branches, commits, and pushes for every change.
+  - slug: github-pr
+    why: Opens PRs and drives them through bot + human review.
+  - slug: test-runner
+    why: Runs lint, type-check, and tests locally before pushing.
+recommended:
+  - slug: code-search
+    why: Judgment starts from reading the actual code, fast.
+  - slug: dep-graph
+    why: Cross-cutting changes need call-site awareness before editing shared code.
+  - slug: analyze-branch-bugs
+    why: Scans a branch diff for likely regressions before asking for review.

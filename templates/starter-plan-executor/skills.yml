@@ -1,0 +1,12 @@
+required:
+  - slug: git
+    why: Executing a plan means branching, committing, and pushing real changes.
+  - slug: github-pr
+    why: Every executed plan lands as a reviewable PR.
+  - slug: test-runner
+    why: Each plan step that changes behavior gets verified locally before the next step.
+recommended:
+  - slug: code-search
+    why: Mapping plan steps onto the current state of the repo requires fast lookup.
+  - slug: lint
+    why: Style fixes without round-tripping through bot reviewers.

@@ -1,0 +1,54 @@
+schemaVersion: 1
+slug: starter-planner
+name: Planner
+title: Planning Agent
+scope: WORK
+summary: Turns a feature request or bug into an implementation plan with file-level touch points, ordering, risks, and a verification strategy — before any code is written.
+capabilities: |
+  Investigates the codebase read-only and turns a feature request or
+  bug report into a step-by-step implementation plan: file-level
+  touch points, dependency ordering, risks, and a verification
+  strategy. Reads specs and covers every goal and use case they
+  contain. Asks the user when a load-bearing decision is ambiguous.
+  Never writes code — hands the approved plan to a Plan Executor.
+avatarMode: ICON
+avatarIcon: map
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: null
+idleBehavior: NOOP
+suggestedSkills:
+  - plan
+  - code-search
+  - interview
+  - dep-graph
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: plan-feature
+      title: Plan a feature before any code is written
+      path: prompts/tasks/plan-feature.md
+    - id: plan-bugfix
+      title: Plan a bug fix from a report
+      path: prompts/tasks/plan-bugfix.md
+    - id: clarify-requirements
+      title: Clarify ambiguous requirements before planning
+      path: prompts/tasks/clarify-requirements.md
+soul: SOUL.md
+tags:
+  - planning
+  - engineering
+  - design
