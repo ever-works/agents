@@ -7,7 +7,7 @@ the listed templates and pre-fills the wizard from each one. A user
 picks a template, tweaks a few fields, confirms, and the platform
 provisions a real Agent with its skills, KB and prompts in place.
 
-Status: bootstrap. Eight starter templates ship here. The repo is
+Status: bootstrap. Twenty-two starter templates ship here. The repo is
 private until the catalog stabilises.
 
 ## SOUL.md — the personality contract

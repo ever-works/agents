@@ -6,7 +6,7 @@ wizard in the Workshop loads these templates from this repo so a user
 can pick a pre-built Agent (e.g. *Project Manager*, *Researcher*,
 *Curator*) and tweak it instead of writing one from scratch.
 
-> Status: bootstrap. Twelve starter templates ship here. This repo is
+> Status: bootstrap. Twenty-two starter templates ship here. This repo is
 > **private** until the catalog stabilises. New templates land via PR;
 > the platform pulls `manifest.json` and the per-template `.works/`
 > manifest at build time.
@@ -40,6 +40,7 @@ templates/
   starter-sales/        ...
   starter-support/      ...
   starter-curator/      ...
+  starter-launcher/     ...            # + kb/data/launch-platforms.csv (platform database)
 eval/
   <slug>.yml                   # conversation-level behavioral evals
 manifest.json                  # the loader's entry point
@@ -89,6 +90,11 @@ npm install --no-save ajv ajv-cli ajv-formats yaml js-yaml
 The original eight starter templates (`starter-pm`, `starter-coder`,
 `starter-researcher`, `starter-copywriter`, `starter-marketer`,
 `starter-sales`, `starter-support`, `starter-curator`) are authored by
+Ever Co. LTD.
+
+`starter-launcher` and its launch-platform database
+(`templates/starter-launcher/kb/data/launch-platforms.csv`, rendered to
+Markdown by `scripts/render-launch-platforms.js`) are authored by
 Ever Co. LTD.
 
 Four additional role templates were adapted from permissively-licensed
