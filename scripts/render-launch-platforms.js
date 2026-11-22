@@ -85,6 +85,8 @@ const AUTOMATION = {
 };
 
 const rows = parseCSV(fs.readFileSync(csvPath, "utf8"));
+const relCsv = path.relative(outDir, csvPath).split(path.sep).join("/");
+const scriptName = path.relative(process.cwd(), __filename).split(path.sep).join("/");
 fs.mkdirSync(outDir, { recursive: true });
 
 const known = new Set(CATEGORIES.map((c) => c[0]));
@@ -115,7 +117,7 @@ const line = (r) => {
 const index = [];
 index.push("# Launch platform directory");
 index.push("");
-index.push("Generated from `../data/launch-platforms.csv` by `scripts/render-launch-platforms.js`. Do not edit by hand: edit the CSV and re-run the script.");
+index.push("Generated from `" + relCsv + "` by `" + scriptName + "`. Do not edit by hand: edit the CSV and re-run the script.");
 index.push("");
 index.push(`${rows.length} platforms in ${CATEGORIES.length} categories.`);
 index.push("");
@@ -139,7 +141,7 @@ for (const [key, title, blurb] of CATEGORIES) {
   doc.push("");
   doc.push(blurb);
   doc.push("");
-  doc.push("Generated from `../data/launch-platforms.csv`. Edit the CSV, not this file.");
+  doc.push("Generated from `" + relCsv + "`. Edit the CSV, not this file.");
   doc.push("");
   doc.push("| Platform | Automation | Cost | Traffic | Difficulty | When | Status |");
   doc.push("|----------|------------|------|---------|------------|------|--------|");
