@@ -1,0 +1,298 @@
+# Instincts generated from https://github.com/ever-works/agents
+# Generated: 2026-07-17T20:05:30.578Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: agents-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ever-works/agents
+---
+
+# Agents Commit Length
+
+## Action
+
+Write moderate-length commit messages (~77 characters)
+
+## Evidence
+
+- Average commit message length: 77 chars
+- Based on 3 commits
+
+---
+id: agents-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ever-works/agents
+---
+
+# Agents Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: agents-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ever-works/agents
+---
+
+# Agents Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: agents-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ever-works/agents
+---
+
+# Agents Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: agents-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ever-works/agents
+---
+
+# Agents Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: agents-instinct-filename-camelCase
+trigger: "When creating a new file in the codebase"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Filename CamelCase
+
+## Action
+
+Name the file using camelCase format
+
+## Evidence
+
+- Pattern in namingConventions.files: camelCase
+
+---
+id: agents-instinct-function-camelCase
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Function CamelCase
+
+## Action
+
+Name the function using camelCase format
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: agents-instinct-class-PascalCase
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Class PascalCase
+
+## Action
+
+Name the class using PascalCase format
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: agents-instinct-constant-SCREAMING_SNAKE_CASE
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Constant SCREAMING_SNAKE_CASE
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE format
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: agents-instinct-import-relative
+trigger: "When importing a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Import Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: agents-instinct-export-named
+trigger: "When exporting functions or classes"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Export Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: agents-instinct-test-separate-folder
+trigger: "When adding or organizing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Test Separate Folder
+
+## Action
+
+Place test files in a separate folder from source code
+
+## Evidence
+
+- Pattern in architecture.testLocation: separate
+
+---
+id: agents-instinct-commit-ci-prefix
+trigger: "When making a commit related to CI changes"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Commit Ci Prefix
+
+## Action
+
+Prefix the commit message with 'ci:'
+
+## Evidence
+
+- Seen in commit: ci: move Linux CI to self-hosted ARC (sized -4/-8) (#2)
+- Pattern in commits.prefixes: ci
+
+---
+id: agents-instinct-commit-mixed-type
+trigger: "When writing commit messages"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Commit Mixed Type
+
+## Action
+
+Allow both prefixed and unprefixed commit messages, but use prefixes for CI-related changes
+
+## Evidence
+
+- Seen in commit: Add 4 starter agent templates: growth, designer, devops, founder
+- Pattern in commits.type: mixed
+
+---
+id: agents-instinct-ci-github-workflow
+trigger: "When configuring CI/CD pipelines"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: ever-works/agents
+---
+
+# Agents Instinct Ci Github Workflow
+
+## Action
+
+Use GitHub Actions workflows defined in .github/workflows/validate.yml
+
+## Evidence
+
+- Pattern in architecture.configFiles: .github/workflows/validate.yml
+
