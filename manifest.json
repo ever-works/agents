@@ -313,6 +313,29 @@
       "evalPath": "eval/starter-generalist.yml"
     },
     {
+      "slug": "starter-launcher",
+      "path": "templates/starter-launcher",
+      "name": "Launcher",
+      "title": "Launch Manager",
+      "summary": "Launches a newly built product: one launch kit, a fit-filtered plan across 200+ launch platforms, directories, marketplaces and communities, automated submissions where allowed and hand-off cards for the steps a person must do.",
+      "scope": "WORK",
+      "avatarIcon": "megaphone",
+      "tags": [
+        "launch",
+        "marketing",
+        "directories",
+        "distribution"
+      ],
+      "manifestPath": "templates/starter-launcher/.works/agent.yml",
+      "soulPath": "templates/starter-launcher/SOUL.md",
+      "readmePath": "templates/starter-launcher/README.md",
+      "systemPromptPath": "templates/starter-launcher/prompts/system.md",
+      "skillsPath": "templates/starter-launcher/skills.yml",
+      "kbPath": "templates/starter-launcher/kb",
+      "iconPath": "templates/starter-launcher/icon.svg",
+      "evalPath": "eval/starter-launcher.yml"
+    },
+    {
       "slug": "starter-librarian",
       "path": "templates/starter-librarian",
       "name": "Librarian",

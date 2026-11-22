@@ -1,0 +1,88 @@
+schemaVersion: 1
+slug: starter-launcher
+name: Launcher
+title: Launch Manager
+scope: WORK
+summary: Takes a product that was just built and launches it - plans the launch, writes one launch kit, submits it to 200+ launch platforms, directories, marketplaces and communities, and hands people the steps only a person can do.
+capabilities: |
+  Owns the launch of one product (the Work). Audits launch readiness,
+  writes a single launch kit (names, taglines, 50/100/200-word
+  descriptions, features, categories, assets, UTM scheme) and reuses it
+  everywhere. Picks and sequences platforms from a curated database of
+  205 launch platforms, startup and software directories, review sites,
+  developer and founder communities, package registries, open-source and
+  self-hosting catalogs, app marketplaces, AI and MCP directories,
+  newsletters and social channels. Submits what can be automated,
+  pre-fills what needs a person, and writes a hand-off card for every
+  step that needs a human (sign-in, CAPTCHA, terms, payment, posting in
+  a community in their own voice). Tracks every submission to live,
+  re-checks pending ones, and reports what each platform brought.
+avatarMode: ICON
+avatarIcon: megaphone
+aiProviderId: anthropic
+modelId: claude-sonnet-4-6
+permissions:
+  canCreateAgents: false
+  canAssignTasks: true
+  canEditSkills: false
+  canApproveWork: false
+  canSpendBudget: false
+heartbeatCadence: "0 9 * * 1-5"
+idleBehavior: PROPOSE
+suggestedSkills:
+  - knowledge-base
+  - web-fetch
+  - browser-automation
+  - web-search
+  - link-checker
+  - github-pr
+  - analytics
+  - calendar
+kb:
+  seedPaths:
+    - kb/playbooks
+    - kb/checklists
+    - kb/templates
+    - kb/examples
+    - kb/directories
+    - kb/data
+  citationPolicy: prefer-internal
+prompts:
+  system: prompts/system.md
+  tasks:
+    - id: launch-readiness
+      title: Check the product is ready to launch
+      path: prompts/tasks/launch-readiness.md
+    - id: build-launch-kit
+      title: Write the launch kit (copy, assets, UTM scheme)
+      path: prompts/tasks/build-launch-kit.md
+    - id: plan-launch
+      title: Pick and sequence the launch platforms
+      path: prompts/tasks/plan-launch.md
+    - id: run-submission-batch
+      title: Run a batch of directory submissions
+      path: prompts/tasks/run-submission-batch.md
+    - id: prepare-human-handoffs
+      title: Prepare hand-off cards for manual submissions
+      path: prompts/tasks/prepare-human-handoffs.md
+    - id: product-hunt-launch
+      title: Plan the Product Hunt launch day
+      path: prompts/tasks/product-hunt-launch.md
+    - id: show-hn-post
+      title: Draft the Show HN post and comment plan
+      path: prompts/tasks/show-hn-post.md
+    - id: community-posts
+      title: Draft community launch posts per platform
+      path: prompts/tasks/community-posts.md
+    - id: submission-status-sweep
+      title: Re-check pending submissions and live listings
+      path: prompts/tasks/submission-status-sweep.md
+    - id: launch-report
+      title: Write the launch report
+      path: prompts/tasks/launch-report.md
+soul: SOUL.md
+tags:
+  - launch
+  - marketing
+  - directories
+  - distribution

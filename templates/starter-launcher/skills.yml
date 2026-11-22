@@ -1,0 +1,27 @@
+required:
+  - slug: knowledge-base
+    why: Holds the launch kit, the platform database and the submission
+      tracker. Without it the agent re-submits and drifts copy.
+  - slug: web-fetch
+    why: Checks that a platform is up, reads its submit page and rules,
+      and confirms each listing is live with the right link.
+  - slug: browser-automation
+    why: Pre-fills directory forms in a signed-in session and stops at
+      sign-in, CAPTCHA, terms, payment and the final submit for a person.
+
+recommended:
+  - slug: web-search
+    why: Finds niche directories, awesome-lists and communities for the
+      product's category, and current submission rules or prices.
+  - slug: link-checker
+    why: Sweeps live listings for broken links, missing UTM tags and
+      the observed dofollow or nofollow attribute.
+  - slug: github-pr
+    why: Opens one clean pull request per awesome-list, app catalog or
+      registry that accepts entries by pull request.
+  - slug: analytics
+    why: Reads visits and signups per utm_source so the launch report
+      says what each platform actually brought.
+  - slug: calendar
+    why: Puts launch day, Show HN, community posts and long review
+      queues on the owner's calendar with reminders.
